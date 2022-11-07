@@ -13,12 +13,17 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include "primes.h"
-#include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char** argv) {
-  if (primes_is_prime(63) == false)
-	return 0;
+int main(int argc, char **argv) {
+  bool expected = false;
+  bool result = primes_is_prime(63);
+  if (expected == result)
+    return EXIT_SUCCESS;
   else
-   return 1;
+    return EXIT_FAILURE;
+  if (expected == result)
+    return 0;
+  else
+    return 1;
 }
