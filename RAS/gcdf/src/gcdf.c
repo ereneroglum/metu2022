@@ -15,27 +15,13 @@
 #include "gcdf.h"
 #include <stdarg.h>
 
-static void gcdf_order_asc(uint32_t *x, uint32_t *y) {
-  if (*x <= *y)
-    return;
-
-  uint32_t temp = *y;
-  *y = *x;
-  *x = *y;
-}
-
 static uint32_t gcdf_gcd2(uint32_t x, uint32_t y) {
-  if (x == y)
-    return x;
-
-  if (x == 0)
-    return y;
-
   if (y == 0)
     return x;
+  if (y > x)
+    return gcdf_gcd2(y, x);
 
-  gcdf_order_asc(&x, &y);
-  return gcdf_gcd2(y - x, x);
+  return gcdf_gcd2(y, x % y);
 }
 
 uint32_t gcdf_gcd(uint32_t count, ...) {
@@ -52,10 +38,7 @@ uint32_t gcdf_gcd(uint32_t count, ...) {
 }
 
 static uint32_t gcdf_lcf2(uint32_t x, uint32_t y) {
-  if (x == 0)
-    return 0;
-
-  if (y == 0)
+  if (x == 0 || y == 0)
     return 0;
 
   return x * y / gcdf_gcd2(x, y);
