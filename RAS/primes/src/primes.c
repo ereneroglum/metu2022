@@ -12,10 +12,6 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-///
-/// \file
-/// This file contains implementation of libprimes.
-
 #include "primes.h"
 #include <math.h>
 #include <stdio.h>

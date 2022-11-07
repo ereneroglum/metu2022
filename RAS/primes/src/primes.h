@@ -16,7 +16,7 @@
 
 ///
 /// \file
-/// This file contains interface to libprimes.
+///
 
 #ifndef PRIMES_H
 #define PRIMES_H
